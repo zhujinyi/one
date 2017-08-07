@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    var $box=$(".box")
+    $box.each(function (index,ele) {
+        $(ele).mousedown(function (ev) {
+            var $that=$(this)
+            var x=ev.pageX-$that.offset().left;
+            var y=ev.pageY-$that.offset().top;
+            $(window).bind("mousemove",function (ev) {
+                $that.css({
+                    left: ev.clientX - x +"px",
+                    top:ev.clientY - y +"px"
+                })
+            })
+            $(window).mouseup(function () {
+                $(window).unbind("mousemove")
+            })
+
+
+        })
+
+    })
+</script>

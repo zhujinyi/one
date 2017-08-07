@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p style="position:absolute;">哦哦恶口</p>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    $(window).mousemove(function (ev) {
+        $("p").css({
+            left: ev.clientX,
+            top: ev.clientY
+        },30)
+    })
+</script>
